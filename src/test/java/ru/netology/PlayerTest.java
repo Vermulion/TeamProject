@@ -18,13 +18,16 @@ public class PlayerTest {
     @Test
     public void shouldSumGenreIfOneGame() {
 
+        Game game = store.publishGame("Нетология Баттл Онлайн", "Акрады");
 
-        player1.installGame(game1);
-        player1.play(game1, 3);
+        Player player = new Player ("Petya");
+        player.installGame(game);
+        player.play(game, 3);
 
         int expected = 3;
-        int actual = player1.sumGenre(game1.getGenre());
+        int actual = player.sumGenre(game.getGenre());
         Assertions.assertEquals(expected, actual);
+
     }
     @Test
     public void shouldSumGenreIfSeveralGames() {
@@ -58,10 +61,10 @@ public class PlayerTest {
         player1.installGame(game1);
         player1.installGame(game2);
         player1.play(game1, 2);
-        player1.play(game2, 8);
+        player1.play(game2, 8); // значение исправила на игрока 2
 
 
-        Game expected = game1;
+        Game expected = game2;
         Game actual = player1.mostPlayerByGenre("Аркады");
         Assertions.assertEquals(expected, actual);
     }
