@@ -25,12 +25,6 @@ public class GameStore {
         return game;
     }
 
-//    public Game publishGame(String title, String genre) {
-//        Game game = new Game(title, genre, this);
-//        games.add(game);
-//        return game;
-//    }
-
     /**
      * Проверяет наличие игры в каталоге и возврашает true
      * если игра есть и false иначе
@@ -79,7 +73,10 @@ public class GameStore {
      * за играми этого каталога
      */
     public int getSumPlayedTime() {
-        return 0;
+        int sum = 0;
+        for (int value : playedTime.values()) {
+            sum += value;
+        }
+        return sum;
     }
-
-}
+    }
