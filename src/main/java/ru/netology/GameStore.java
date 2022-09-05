@@ -25,12 +25,18 @@ public class GameStore {
         return game;
     }
 
+//    public Game publishGame(String title, String genre) {
+//        Game game = new Game(title, genre, this);
+//        games.add(game);
+//        return game;
+//    }
+
     /**
      * Проверяет наличие игры в каталоге и возврашает true
      * если игра есть и false иначе
      */
     public boolean containsGame(Game game) {
-        for (int i = 1; i < games.size(); i++) {
+        for (int i = 1; i <= games.size(); i++) {
             if (games.get(i - 1).equals(game)) {
                 return true;
             }
