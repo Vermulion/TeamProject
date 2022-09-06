@@ -55,6 +55,19 @@ public class PlayerTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void shouldGiveSumZero() {
+
+        player1.installGame(game1);
+        player1.installGame(game2);
+        player1.play(game1, 4);
+        player1.play(game1, 1);
+
+        int expected = 0;
+        int actual = player1.sumGenre("Пошаговая стратегия");
+        Assertions.assertEquals(expected, actual);
+    }
+
 
     @Test
     public void shouldReturnMostPlayedGenre() {
@@ -65,6 +78,19 @@ public class PlayerTest {
 
 
         Game expected = game2;
+        Game actual = player1.mostPlayerByGenre("Аркады");
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReturnMostPlayedGenreFirst() {
+        player1.installGame(game1);
+        player1.installGame(game2);
+        player1.play(game1, 20);
+        player1.play(game2, 8); // значение исправила на игрока 2
+
+
+        Game expected = game1;
         Game actual = player1.mostPlayerByGenre("Аркады");
         Assertions.assertEquals(expected, actual);
     }
