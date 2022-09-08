@@ -98,3 +98,16 @@ public class GameStoreTest {
         assertEquals(expected, actual);
     }
 }
+////public class GameStoreTest {
+////
+////    @Test
+////    public void shouldAddGame() {
+////
+////        GameStore store = new GameStore();
+////        Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+////
+////        assertTrue(store.containsGame(game));
+////    }
+//
+//    // другие ваши тесты
+//}
