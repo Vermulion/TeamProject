@@ -30,14 +30,13 @@ public class GameStore {
      * если игра есть и false иначе
      */
     public boolean containsGame(Game game) {
-        for (int i = 1; i < games.size(); i++) {
+        for (int i = 1; i <= games.size(); i++) {
             if (games.get(i - 1).equals(game)) {
                 return true;
             }
         }
         return false;
     }
-
     /**
      * Регистрирует количество времени, которое проиграл игрок
      * за игрой этого каталога. Игрок задаётся по имени. Время должно
@@ -45,7 +44,7 @@ public class GameStore {
      */
     public void addPlayTime(String playerName, int hours) {
         if (playedTime.containsKey(playerName)) {
-            playedTime.put(playerName, playedTime.get(playerName));
+            playedTime.put(playerName, playedTime.get(playerName) + hours);
         } else {
             playedTime.put(playerName, hours);
         }
@@ -56,7 +55,7 @@ public class GameStore {
      * времени. Если игроков нет, то возвращется null
      */
     public String getMostPlayer() {
-        int mostTime = 1;
+        int mostTime = 0;
         String bestPlayer = null;
         for (String playerName : playedTime.keySet()) {
             int playerTime = playedTime.get(playerName);
@@ -73,6 +72,11 @@ public class GameStore {
      * за играми этого каталога
      */
     public int getSumPlayedTime() {
-        return 0;
+        int sum = 0;
+        for (int value : playedTime.values()) {
+            sum += value;
+        }
+        return sum;
     }
-}
+
+    }
